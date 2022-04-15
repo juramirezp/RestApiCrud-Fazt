@@ -5,7 +5,7 @@ import { connectToDB } from "./utils/mongoose.js";
 async function main() {
 	await connectToDB();
 
-	app.listen(process.env.PORT || 3000);
+	app.listen(process.env.PORT || 5000);
 	console.log(`Server on port ${process.env.PORT}`);
 }
 
