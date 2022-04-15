@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 //Ver peticiones en consola
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 app.use(indexRoutes);
 app.use(productsRoutes);
