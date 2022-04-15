@@ -1,6 +1,8 @@
 import { Router } from "express";
+import fileUpload from "express-fileupload";
 import {
 	getProducts,
+	getProduct,
 	createProduct,
 	updateProduct,
 	deleteProduct,
@@ -10,10 +12,26 @@ const router = Router();
 
 router.get("/products", getProducts);
 
-router.post("/products", createProduct);
+router.get("/products/:id", getProduct);
 
-router.put("/products", updateProduct);
+router.post(
+	"/products",
+	fileUpload({
+		useTempFiles: true,
+		tempFileDir: "./uploads",
+	}),
+	createProduct
+);
 
-router.delete("/products", deleteProduct);
+router.put(
+	"/products/:id",
+	fileUpload({
+		useTempFiles: true,
+		tempFileDir: "./uploads",
+	}),
+	updateProduct
+);
+
+router.delete("/products/:id", deleteProduct);
 
 export default router;
